@@ -78,7 +78,7 @@ export default function Home() {
             </p>
 
             <h1 className="max-w-5xl text-6xl font-black uppercase leading-[0.9] tracking-tight md:text-8xl">
-              I rape dogs on the weekend.
+              Proper vehicle work without the garage nonsense
               <span className="text-red-500">.</span>
             </h1>
 
