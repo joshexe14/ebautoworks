@@ -5,7 +5,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Battery,
   Car,
   CheckCircle2,
   Gauge,
@@ -17,18 +16,18 @@ import {
 
 const services = [
   {
-    title: "MINI Diagnostics",
+    title: "Vehicle Diagnostics",
     description:
       "Warning lights, limp mode, sensor faults, electrical issues and running problems diagnosed properly.",
     icon: Gauge,
     points: ["Fault code reading", "Live data checks", "Clear next steps"],
   },
   {
-    title: "MINI Servicing",
+    title: "Servicing",
     description:
-      "Interim and full servicing for MINI models, with proper checks and quality replacement parts.",
+      "Interim and full servicing using quality parts, proper checks and clear advice.",
     icon: Wrench,
-    points: ["Oil and filter service", "Inspection checks", "Service reset"],
+    points: ["Oil and filter service", "Inspection checks", "Service resets"],
   },
   {
     title: "Brakes & Suspension",
@@ -38,28 +37,21 @@ const services = [
     points: ["Brake inspections", "Suspension repairs", "Noise diagnosis"],
   },
   {
-    title: "Timing Chain & Engine Issues",
+    title: "Engine Work",
     description:
-      "Support for common MINI engine concerns, rattles, leaks, rough running and reliability checks.",
+      "Support for larger mechanical jobs, engine faults, rebuild-style work and long-form repairs.",
     icon: Settings,
     points: ["Engine noises", "Oil leaks", "Running faults"],
   },
   {
     title: "Clutch & Gearbox",
     description:
-      "Clutch issues, gearbox concerns, drivetrain faults and general transmission-related repairs.",
+      "Clutch issues, gearbox concerns, drivetrain faults and transmission-related repairs.",
     icon: Car,
     points: ["Clutch problems", "Gear selection issues", "Drivetrain checks"],
   },
   {
-    title: "BMW Basic Servicing",
-    description:
-      "Basic BMW servicing, diagnostics and repair support alongside the core MINI specialist work.",
-    icon: Battery,
-    points: ["1 Series support", "Basic servicing", "Fault checks"],
-  },
-  {
-    title: "General Repairs",
+    title: "MOT & General Repairs",
     description:
       "Everyday vehicle repairs for leaks, noises, wear and tear, MOT issues and reliability problems.",
     icon: CheckCircle2,
@@ -68,19 +60,21 @@ const services = [
   {
     title: "Performance & Maintenance",
     description:
-      "Light upgrades, preventative maintenance and enthusiast-focused care for MINI and BMW vehicles.",
+      "Light upgrades, preventative maintenance and enthusiast-focused vehicle care.",
     icon: Zap,
-    points: ["Performance checks", "Upgrade support", "Preventative work"],
+    points: ["Upgrade support", "Preventative work", "Performance checks"],
   },
 ];
 
-const models = [
-  "MINI Cooper",
-  "MINI Cooper S",
-  "MINI JCW",
-  "MINI Clubman",
-  "MINI Countryman",
-  "BMW 1 Series",
+const workTypes = [
+  "Diagnostics",
+  "Servicing",
+  "Engine work",
+  "Clutch & gearbox",
+  "Brakes & suspension",
+  "MOT repairs",
+  "General maintenance",
+  "Long repair jobs",
 ];
 
 export default function ServicesPage() {
@@ -105,27 +99,27 @@ export default function ServicesPage() {
           </p>
 
           <h1 className="mt-6 max-w-5xl text-6xl font-black uppercase leading-[0.9] tracking-tight md:text-8xl">
-            MINI specialist care. BMW support where needed
+            Diagnostics, servicing and proper repairs
             <span className="text-red-500">.</span>
           </h1>
 
           <p className="mt-8 max-w-3xl text-lg leading-8 text-neutral-300">
-            From diagnostics and servicing to brakes, suspension, engine issues
-            and general repairs, EB Autoworks is built around MINI drivers while
-            still supporting basic BMW work and everyday vehicle repairs.
+            From routine servicing to deeper fault finding, engine work and
+            long-form repairs, EB Autoworks is built around honest advice,
+            clear next steps and proper vehicle care.
           </p>
         </div>
       </section>
 
       <section className="border-y border-white/10 bg-[#0b0b0b] px-6 py-7">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-8 text-sm font-black uppercase tracking-[0.45em] text-white">
-          <span>MINI</span>
-          <span className="text-red-500">/</span>
           <span>Diagnostics</span>
           <span className="text-red-500">/</span>
           <span>Servicing</span>
           <span className="text-red-500">/</span>
           <span>Repairs</span>
+          <span className="text-red-500">/</span>
+          <span>Engine Work</span>
         </div>
       </section>
 
@@ -175,29 +169,29 @@ export default function ServicesPage() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.3em] text-red-500">
-              MINI Models
+              Work We Take On
             </p>
 
             <h2 className="mt-5 text-5xl font-black uppercase md:text-7xl">
-              Built around the MINI range.
+              From quick checks to serious jobs.
             </h2>
 
             <p className="mt-6 leading-8 text-neutral-300">
-              The site should make it clear straight away that EB Autoworks is a
-              strong fit for MINI owners, especially Cooper, Cooper S and JCW
-              drivers.
+              Not every job is a quick booking slot. Some vehicles need deeper
+              diagnosis, careful strip-down work, parts ordering, engine repairs
+              or longer project time.
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {models.map((model) => (
+            {workTypes.map((type) => (
               <div
-                key={model}
+                key={type}
                 className="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
               >
-                <p className="font-black uppercase">{model}</p>
+                <p className="font-black uppercase">{type}</p>
                 <p className="mt-3 text-sm leading-6 text-neutral-400">
-                  Diagnostics, servicing, inspections and repair support.
+                  Send an enquiry with the vehicle details and what needs doing.
                 </p>
               </div>
             ))}
@@ -219,9 +213,21 @@ export default function ServicesPage() {
 
           <div className="grid gap-5">
             {[
-              ["01", " Your Issue.", "Send the vehicle details, symptoms and what you need help with."],
-              ["02", "Inspectcion / Diagnosis.", "Proper vehicle checks before recommending work."],
-              ["03", "Clear next steps.", "You get honest advice before any work is carried out."],
+              [
+                "01",
+                "Tell us the issue.",
+                "Send the vehicle details, symptoms and what you need help with.",
+              ],
+              [
+                "02",
+                "Inspection or diagnosis.",
+                "The vehicle is checked properly before any work is recommended.",
+              ],
+              [
+                "03",
+                "Clear next steps.",
+                "You get honest advice before repairs or servicing are carried out.",
+              ],
             ].map(([number, title, text]) => (
               <div
                 key={number}
@@ -241,12 +247,12 @@ export default function ServicesPage() {
       <section className="border-t border-white/10 px-6 py-24">
         <div className="mx-auto rounded-[2rem] bg-red-600 p-10 text-white md:max-w-7xl md:p-14">
           <h2 className="max-w-4xl text-5xl font-black uppercase md:text-7xl">
-            Need your MINI looking at?
+            Need your vehicle looking at?
           </h2>
 
           <p className="mt-6 max-w-2xl leading-8 text-red-50">
-            Send an enquiry today and we’ll get back to you as soon as possible.
-            A full booking calendar can be added in the next phase.
+            Send an enquiry today and describe what’s going on. EB Autoworks can
+            then advise on the most suitable next step.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -254,7 +260,7 @@ export default function ServicesPage() {
               href="/contact"
               className="group inline-flex items-center justify-center gap-3 rounded bg-black px-7 py-4 text-sm font-black uppercase tracking-widest hover:bg-neutral-900"
             >
-              Request Booking
+              Send Enquiry
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </Link>
 
@@ -271,7 +277,7 @@ export default function ServicesPage() {
       <footer className="border-t border-white/10 px-6 py-10">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 text-sm text-neutral-500 md:flex-row">
           <p>© {new Date().getFullYear()} EB Autoworks. All rights reserved.</p>
-          <p>MINI-focused independent garage. BMW vehicles also welcome.</p>
+          <p>Independent garage for diagnostics, servicing and repairs.</p>
         </div>
       </footer>
     </main>
